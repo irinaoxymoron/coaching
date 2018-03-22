@@ -47,7 +47,7 @@ body {
   min-width: 320px;
   left: 0;
   right: 0;
-  background-color: #ccd9e3;
+  background-image: url(../img/back-pattern.jpg);
 }
 .container {
   margin-right: auto;
