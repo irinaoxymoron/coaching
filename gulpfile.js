@@ -32,7 +32,7 @@ const spritesmith = require('gulp.spritesmith');
 const buffer = require('vinyl-buffer');
 const merge = require('merge-stream');
 
-// ЗАДАЧА: Компиляция препроцессора
+// Компиляция препроцессора
 gulp.task('less', function(){
   return gulp.src(dirs.source + '/less/style.less')
     .pipe(plumber({ errorHandler: onError }))
@@ -50,7 +50,7 @@ gulp.task('less', function(){
     .pipe(gulp.dest(dirs.build + '/css/'));
 });
 
-// ЗАДАЧА: Сборка HTML
+// Сборка HTML
 gulp.task('html', function() {
   return gulp.src(dirs.source + '/*.html')
     .pipe(plumber({ errorHandler: onError }))
@@ -70,7 +70,7 @@ gulp.task('pug', function() {
     .pipe(gulp.dest(dirs.build));
 });
 
-// ЗАДАЧА: Копирование изображений
+// Копирование изображений
 gulp.task('img', function () {
   return gulp.src([
         dirs.source + '/img/*.{gif,png,jpg,jpeg,svg}',
@@ -82,7 +82,7 @@ gulp.task('img', function () {
     .pipe(gulp.dest(dirs.build + '/img'));
 });
 
-// ЗАДАЧА: Оптимизация изображений (ЗАДАЧА ЗАПУСКАЕТСЯ ТОЛЬКО ВРУЧНУЮ)
+// Оптимизация изображений (вручную)
 gulp.task('img:opt', function () {
   return gulp.src([
       dirs.source + '/img/*.{gif,png,jpg,jpeg,svg}',
@@ -97,7 +97,7 @@ gulp.task('img:opt', function () {
     .pipe(gulp.dest(dirs.source + '/img'));
 });
 
-// ЗАДАЧА: Сборка SVG-спрайта
+// Сборка SVG-спрайта
 gulp.task('svgstore', function (callback) {
   let spritePath = dirs.source + '/img/svg-sprite';
   if(fileExist(spritePath) !== false) {
@@ -125,7 +125,7 @@ gulp.task('svgstore', function (callback) {
   }
 });
 
-// ЗАДАЧА: сшивка PNG-спрайта
+// Сшивка PNG-спрайта
 gulp.task('png:sprite', function () {
   let fileName = 'sprite-' + Math.random().toString().replace(/[^0-9]/g, '') + '.png';
   let spriteData = gulp.src('src/img/png-sprite/*.png')
@@ -146,7 +146,7 @@ gulp.task('png:sprite', function () {
   return merge(imgStream, cssStream);
 });
 
-// ЗАДАЧА: Очистка папки сборки
+// Очистка папки сборки
 gulp.task('clean', function () {
   return del([
     dirs.build + '/**/*',
@@ -154,18 +154,10 @@ gulp.task('clean', function () {
   ]);
 });
 
-// ЗАДАЧА: Конкатенация и углификация Javascript
+// Конкатенация и углификация Javascript
 gulp.task('js', function () {
   return gulp.src([
       // список обрабатываемых файлов
-      dirs.source + '/js/jquery.min.js',
-      dirs.source + '/js/inputmask.js',
-      dirs.source + '/js/jquery.inputmask.js',
-      dirs.source + '/js/inputmask.phone.extensions.js',
-      dirs.source + '/js/jquery.validate.js',
-      dirs.source + '/js/phone-ru.js',
-      dirs.source + '/js/select2.full.min.js',
-      dirs.source + '/js/map.js',
       dirs.source + '/js/script.js'
     ])
     .pipe(plumber({ errorHandler: onError }))
@@ -174,7 +166,7 @@ gulp.task('js', function () {
     .pipe(gulp.dest(dirs.build + '/js'));
 });
 
-// ЗАДАЧА: Кодирование в base64 шрифта в формате WOFF
+// Кодирование в base64 шрифта в формате WOFF
 gulp.task('css:fonts:woff', function (callback) {
   let fontCssPath = dirs.source + '/fonts/font_opensans_woff.css';
   if(fileExist(fontCssPath) !== false) {
@@ -196,7 +188,7 @@ gulp.task('css:fonts:woff', function (callback) {
 }
 });
 
-// ЗАДАЧА: Кодирование в base64 шрифта в формате WOFF2
+// Кодирование в base64 шрифта в формате WOFF2
 gulp.task('css:fonts:woff2', function (callback) {
   let fontCssPath = dirs.source + '/fonts/font_opensans_woff2.css';
   if(fileExist(fontCssPath) !== false) {
@@ -219,7 +211,7 @@ gulp.task('css:fonts:woff2', function (callback) {
   }
 });
 
-//Копирование шрифтов
+// Копирование шрифтов
 
 gulp.task('fonts', function () {
     return gulp.src([
@@ -229,7 +221,7 @@ gulp.task('fonts', function () {
         .pipe(gulp.dest(dirs.build + '/fonts'));
 });
 
-// ЗАДАЧА: Сборка всего
+// Сборка
 gulp.task('build', gulp.series(
   'clean',
   'svgstore',
@@ -239,7 +231,7 @@ gulp.task('build', gulp.series(
   'html'
 ));
 
-// ЗАДАЧА: Локальный сервер, слежение
+// Локальный сервер, слежение
 gulp.task('serve', gulp.series('build', function() {
 
   browserSync.init({
@@ -292,13 +284,13 @@ gulp.task('serve', gulp.series('build', function() {
 
 }));
 
-// ЗАДАЧА, ВЫПОЛНЯЕМАЯ ТОЛЬКО ВРУЧНУЮ: Отправка в GH pages (ветку gh-pages репозитория)
+// Отправка в GH pages (ветку gh-pages репозитория). Вручную
 gulp.task('deploy', function() {
   return gulp.src('./build/**/*')
     .pipe(ghPages());
 });
 
-// ЗАДАЧА: Задача по умолчанию
+// Задача по умолчанию
 gulp.task('default',
   gulp.series('serve')
 );
