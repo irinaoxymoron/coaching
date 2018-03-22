@@ -1,0 +1,14 @@
+.objects-map {
+  position: relative;
+  background-color: @color-body;
+  z-index: 10;
+
+  &__header {
+    .container();
+    margin-bottom: 15px;
+
+    @media (min-width: @screen-md) {
+      margin-bottom: 40px;
+    }
+  }
+}

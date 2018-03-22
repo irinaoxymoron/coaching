@@ -1,0 +1,62 @@
+.phone {
+
+  &__number {
+    position: relative;
+    font-size: 26px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+    padding-right: 50px;
+
+    @media (min-width: @screen-sm) {
+      padding-right: 60px;
+    }
+
+    @media (min-width: @screen-lg) {
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 30px;
+      height: 30px;
+      top: -4px;
+      right: 0;
+      background: url(../img/icon-phone.svg);
+
+      @media (min-width: @screen-sm) {
+        display: block;
+        width: 43px;
+        height: 43px;
+        top: -2px;
+      }
+
+      @media (min-width: @screen-lg) {
+        right: -6px;
+      }
+    }
+  }
+
+  &__note {
+    display: none;
+    font-size: 13px;
+    color: @color-main;
+    font-weight: 600;
+    text-align: right;
+    padding-right: 60px;
+
+    @media (min-width: @screen-sm) {
+      display: block;
+    }
+
+    @media (min-width: @screen-md) {
+      padding-top: 4px;
+    }
+
+    @media (min-width: @screen-lg) {
+      line-height: 1;
+    }
+  }
+}

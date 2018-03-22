@@ -1,0 +1,70 @@
+.callback {
+  background-color: #FFFFFF;
+  padding-top: 40px;
+
+  @media (min-width: @screen-sm) {
+    padding-top: 70px;
+  }
+
+  &__inner {
+    .container();
+    font-size: 0;
+    position: relative;
+
+    @media (min-width: @screen-sm) {
+      padding-bottom: 48px;
+    }
+
+    @media (min-width: @screen-lg) {
+      padding-bottom: 38px;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 34px;
+    text-align: center;
+    line-height: 1.14;
+    color: #000000;
+
+    @media (min-width: @screen-sm) {
+      width: 81%;
+      text-align: left;
+      font-size: 48px;
+      margin-bottom: 33px;
+      line-height: 1.1;
+    }
+
+    @media (min-width: @screen-lg) {
+      font-size: 64px;
+      line-height: 1;
+      margin-bottom: 37px;
+    }
+  }
+
+  &__img {
+    width: 245px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 15;
+
+    @media (min-width: @screen-sm) {
+      position: absolute;
+      bottom: 0;
+      right: -14px;
+      width: 340px;
+    }
+
+    @media (min-width: @screen-md) {
+      width: 460px;
+    }
+
+    @media (min-width: @screen-lg) {
+      width: 575px;
+      height: 663px;
+      right: 70px;
+    }
+  }
+}

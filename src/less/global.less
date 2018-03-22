@@ -1,0 +1,114 @@
+@font-face {
+  font-family: 'Big City Grotesque Pro';
+  src: url(../fonts/BigCityGrotesquePro-Bold.woff) format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Big City Grotesque Pro';
+  src: url(../fonts/BigCityGrotesquePro-Black.woff) format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Big City Grotesque Pro';
+  src: url(../fonts/BigCityGrotesquePro-Regular.woff) format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PTRoubleSans';
+  src: url(../fonts/PTRoubleSans.woff) format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+  font-family: @font-family;
+  font-size: @font-size;
+  line-height: @line-height;
+  color: @font-color;
+  font-weight: 300;
+  min-width: 320px;
+  left: 0;
+  right: 0;
+  background-color: @color-body;
+}
+
+.container {
+  .container();
+}
+
+a {
+  text-decoration: none;
+  color: @color-main;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+main {
+  flex-grow: 1;
+}
+
+textarea,
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="button"],
+input[type="submit"] {
+  -webkit-appearance: none;
+}
+
+.b-rub {
+  font-family: 'PTRoubleSans', Arial, sans-serif;
+  font-size: 24px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+form select.error,
+form textarea.error,
+form input.error {
+  border: 3px solid @color-secondary;
+
+  &::placeholder {
+    color: @color-main;
+    font-size: 20px;
+    font-weight: 700;
+
+    @media (min-width: @screen-lg) {
+      font-size: 24px;
+    }
+  }
+}
+
+.red {
+  color: @color-secondary;
+}
+
+.i {
+  font-style: italic;
+}

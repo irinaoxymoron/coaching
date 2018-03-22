@@ -1,0 +1,55 @@
+.balloon {
+  position: absolute;
+  padding: 15px 25px;
+  width: 167px;
+  height: 68px;
+  background: url(../img/balloon-bg.png) center center no-repeat;
+  background-size: contain;
+
+  @media (min-width: @screen-sm) {
+    width: 290px;
+    height: 110px;
+    padding: 15px 40px;
+  }
+
+  @media (min-width: @screen-md) {
+    padding: 17px 45px;
+    width: 369px;
+    height: 144px;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 8px;
+
+    @media (min-width: @screen-sm) {
+      font-size: 18px;
+    }
+
+    @media (min-width: @screen-md) {
+      font-size: 32px;
+    }
+  }
+
+  &__descr {
+    font-weight: 400;
+    color: #788d98;
+    font-size: 14px;
+
+    @media (min-width: @screen-sm) {
+      display: block;
+    }
+
+    @media (min-width: @screen-md) {
+      font-size: 18px;
+    }
+  }
+}
+
+
+// Кастомные стили для infowindow
+.gm-style .gm-style-iw {
+  padding: 20px 15px;
+}

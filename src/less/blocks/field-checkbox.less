@@ -1,0 +1,82 @@
+.field-checkbox {
+  .visually-hidden();
+
+  &:not(:checked) + label,
+  &:checked + label {
+    position: relative;
+    display: block;
+    cursor: pointer;
+
+    > span {
+      display: block;
+      margin-left: 30px;
+      font-size: 14px;
+
+      @media (min-width: @screen-sm) {
+        margin-left: 24px;
+      }
+
+      @media (min-width: @screen-lg) {
+        font-size: 17px;
+      }
+    }
+  }
+
+  &:not(:checked) + label:before,
+  &:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid @color-main;
+    background: transparent;
+    border-radius: 50%;
+    font-size: 14px;
+
+    @media (min-width: @screen-sm) {
+      top: -2px;
+    }
+
+    @media (min-width: @screen-sm) {
+      top: 0;
+    }
+  }
+
+  /* checked mark aspect */
+  &:not(:checked) + label:after,
+  &:checked + label:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: @color-secondary;
+    transition: all .2s;
+
+    @media (min-width: @screen-sm) {
+      top: 5px;
+    }
+
+    @media (min-width: @screen-lg) {
+      top: 5px;
+    }
+  }
+
+  &.error +label:before {
+    border: 2px solid #e01d42;
+  }
+
+  &:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  &:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

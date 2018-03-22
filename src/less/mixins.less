@@ -1,0 +1,37 @@
+.container() {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: @container-xs;
+
+  @media (min-width: @screen-sm) {
+    width: @container-sm;
+  }
+
+  @media (min-width: @screen-md) {
+    width: @container-md;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @media (min-width: @screen-lg) {
+    width: @container-lg;
+  }
+
+  &--relative {
+    position: relative;
+  }
+}
+
+
+.visually-hidden() {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
